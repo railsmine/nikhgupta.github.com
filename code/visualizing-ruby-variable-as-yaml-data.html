@@ -1,0 +1,239 @@
+<!DOCTYPE html> 
+ 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 oldie"> <![endif]--> 
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7 oldie"> <![endif]--> 
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 oldie"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]--> 
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]--> 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Nikhil Gupta:: Visualizing Ruby variable as YAML data</title>
+  
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media="all" --> 
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/face_pt_sans.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/animation.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/screen_pt_sans.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/custom.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/colorbox.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/syntax.css" />
+  
+  <script src="/themes/awesomeness/js/libs/modernizr-2.0.min.js"></script>
+  <script src="/themes/awesomeness/js/libs/respond.min.js"></script>
+  
+</head> 
+
+<body id="top"> 
+    <div id="container">
+        <div id="wrapper"> 
+
+<header>
+    <h1 class="png_bg">Nikhil<span>Gupta</span></h1> 
+    <nav> 
+    <ul> 
+        <li><a href="/">Home</a></li>
+        <!--
+        <li><a href="/about/">About</a></li> 
+        -->
+        <li><a href="/categories/code/">Code</a></li> 
+        <li><a href="/categories/photography/">Photography</a></li> 
+        <li><a href="/blog/">Blog</a></li> 
+        <li><a href="/contact/">Contact</a></li> 
+    </ul> 
+</nav> 
+
+</header>
+<section id="overview">
+  <p><span>&#9733;</span> 
+    
+      I'm <strong>Nikhil Gupta</strong>, a hobbyist photographer, passionate web developer, open-source lover and a WordPress specialist, who loves exploring Ruby and writing code with CakePHP.
+    
+  </p> 
+</section> 
+
+
+<article> 
+    <div id="post-header"> 
+        <h1 class="post-title">Visualizing Ruby variable as YAML data</h1> 
+        
+            <p>06 July 2011</p>
+        
+    </div> 
+    
+    <div id="article-content">
+        <p>Since, I am learning Ruby these days, I needed something like the <code>var_dump</code> function, available in PHP. Now, ruby does have a much nicer feature for this, but I needed something that allowed me to view the tree structure (as possible with using xdebug on PHP). So, I came up with the following function, which allows me to dump a variable using YAML format.</p>
+
+<h2 id='usage'>Usage</h2>
+
+<p>This function can be used as below:</p>
+
+<ul>
+<li><code>var_dump(somevar)</code> :: dump variable on console, with YAML format</li>
+
+<li><code>var_dump(somevar, &quot;f&quot;)</code> :: dump variable in file, with YAML format</li>
+
+<li><code>var_dump(somevar, &quot;c&quot;)</code> :: dump variable on console, no formatting done</li>
+</ul>
+
+<h2 id='code_snippet'>Code Snippet</h2>
+<div class='highlight'><pre><code class='ruby'><span class='k'>def</span> <span class='nf'>var_dump</span><span class='p'>(</span><span class='n'>var</span><span class='p'>,</span><span class='n'>type</span><span class='o'>=</span><span class='s2'>&quot;&quot;</span><span class='p'>)</span>
+  <span class='k'>if</span> <span class='n'>type</span><span class='o'>==</span><span class='s2'>&quot;c&quot;</span>
+    <span class='c1'>## will dump formatted YAML data to console</span>
+    <span class='nb'>print</span><span class='p'>(</span><span class='n'>var</span><span class='p'>)</span>
+  <span class='k'>elsif</span> <span class='n'>type</span><span class='o'>==</span><span class='s2'>&quot;f&quot;</span>
+    <span class='c1'>## will dump formatted YAML data to a file</span>
+    <span class='n'>path</span> <span class='o'>=</span> <span class='no'>File</span><span class='o'>.</span><span class='n'>join</span><span class='p'>(</span><span class='n'>dirname</span><span class='p'>(</span><span class='bp'>__FILE__</span><span class='p'>),</span> <span class='s2'>&quot;var_dump.yml&quot;</span><span class='p'>)</span>
+		<span class='no'>File</span><span class='o'>.</span><span class='n'>open</span><span class='p'>(</span><span class='n'>path</span><span class='p'>,</span> <span class='s1'>&#39;w&#39;</span><span class='p'>)</span> <span class='p'>{</span><span class='o'>|</span><span class='n'>f</span><span class='o'>|</span> <span class='n'>f</span><span class='o'>.</span><span class='n'>print</span><span class='p'>(</span><span class='no'>YAML</span><span class='o'>::</span><span class='n'>dump</span><span class='p'>(</span><span class='n'>var</span><span class='p'>))</span> <span class='p'>}</span>
+  <span class='k'>else</span>
+    <span class='c1'>## will dump unformatted variable to console</span>
+    <span class='nb'>print</span> <span class='p'>(</span><span class='no'>YAML</span><span class='o'>::</span><span class='n'>dump</span><span class='p'>(</span><span class='n'>var</span><span class='p'>))</span>
+  <span class='k'>end</span>
+<span class='k'>end</span>
+</code></pre>
+</div>
+        <div id="disqus_thread" name="#comments"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'nikhgupta'; // required: replace example with your forum shortname
+
+    // The following are highly recommended additional parameters. Remove the slashes in front to use.
+     var disqus_url = '/code/visualizing-ruby-variable-as-yaml-data.html';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+    </div>
+</article>
+
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <aside>
+    
+    <dl>
+        <dt>Related Articles</dt>
+        <dd>
+            <ul>
+                
+				        <li><a href="/photography/total-lunar-eclipse-june-15-2011.html">Total Lunar Eclipse @June 15, 2011</a></li>
+		        
+				        <li><a href="/generic/the-colophon-for-the-starters.html">The Colophon for the Starters</a></li>
+		        
+		    </ul>
+		</dd>
+	</dl>
+    
+    <dl> 
+        <dt>Recently Published</dt> 
+        <dd> 
+            <ul> 
+                
+                    
+                        
+                     
+                
+                    
+                        
+                     
+                
+                    
+                        
+                            <li><a href="/generic/the-colophon-for-the-starters.html">The Colophon for the Starters</a></li>
+                        
+                     
+                        
+                <li><a href="/blog/"><strong>Older articles &rarr;</strong></a></li> 
+            </ul> 
+        </dd> 
+    </dl> 
+
+    <dl> 
+        <dt>Recently Coded</dt> 
+        <dd> 
+            <ul> 
+                
+                <li><a href="/code/visualizing-ruby-variable-as-yaml-data.html">Visualizing Ruby variable as YAML data</a></li>
+                
+                <li><a href="/code/"><strong>Previously Coded &rarr;</strong></a></li>
+            </ul> 
+        </dd>
+    </dl>
+
+    <dl> 
+        <dt>Recently Captured</dt> 
+        <dd> 
+            <ul> 
+                
+                <li><a href="/photography/total-lunar-eclipse-june-15-2011.html">Total Lunar Eclipse @June 15, 2011</a></li>
+                
+                <li><a href="/photography/"><strong>Previously Captured &rarr;</strong></a></li>
+            </ul> 
+        </dd>
+    </dl>
+</aside>
+
+</div>
+
+
+
+<footer>
+    <ul> 
+        <li>&copy; Nikhil Gupta, 2009-2011. All rights reserved.</li> 
+        <li>Powered by <a href="https://github.com/mojombo/jekyll" rel="external">Jekyll</a></li> 
+        <li>Elsewhere: <a href="http://twitter.com/nikhgupta" rel="external">Twitter</a> | <a href="http://facebook.com/nikhgupta" rel="external">Facebook</a> | <a href="http://github.com/nikhgupta" rel="external">Github</a></li> 
+    </ul> 
+</footer>
+</div> <!--! end of #container -->
+</div>
+<!-- JavaScript at the bottom for fast page loading -->
+
+<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.1.min.js"><\/script>')</script>
+-->
+ 
+<script src="/themes/awesomeness/js/libs/jquery-1.6.1.min.js"></script> 
+<script src="/themes/awesomeness/js/mylibs/jquery.easing.1.3.js"></script> 
+<script src="/themes/awesomeness/js/mylibs/jquery.bxSlider-3.0.min.js"></script> 
+<script src="/themes/awesomeness/js/mylibs/jquery.livequery-1.0.3.js"></script> 
+<script src="/themes/awesomeness/js/mylibs/jquery.colorbox-1.3.17.min.js"></script>
+<script src="/themes/awesomeness/js/libs/jquery.retina-1.2.js"></script>
+<script src="/themes/awesomeness/js/plugins.js"></script> 
+<script src="/themes/awesomeness/js/script.js"></script> 
+
+<!-- GOOGLE ANALYTICS CODE -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', "UA-21306915-1"]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+ 
+<!--[if lt IE 7 ]>
+<script src="/themes/awesomeness/js/libs/dd_belatedpng.js"></script>
+<script> DD_belatedPNG.fix('img, .png_bg');</script>
+<![endif]--> 
+
+</body> 
+</html>
+

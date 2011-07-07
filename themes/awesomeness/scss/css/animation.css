@@ -1,0 +1,196 @@
+::-moz-selection {
+  background: #cccccc;
+  color: #fff;
+  text-shadow: none; }
+
+::selection {
+  background: #cccccc;
+  color: #fff;
+  text-shadow: none; }
+
+a:link {
+  -webkit-tap-highlight-color: #cccccc; }
+
+@-webkit-keyframes colours {
+  0% {
+    color: #f2713c;
+    border-top-color: #f2713c;
+    border-left-color: #f2713c; }
+
+  20% {
+    color: #f2713c;
+    border-top-color: #f2713c;
+    border-left-color: #f2713c; }
+
+  40% {
+    color: #cc0000;
+    border-top-color: #cc0000;
+    border-left-color: #cc0000; }
+
+  60% {
+    color: #6e1978;
+    border-top-color: #6e1978;
+    border-left-color: #6e1978; }
+
+  80% {
+    color: #376414;
+    border-top-color: #376414;
+    border-left-color: #376414; }
+
+  100% {
+    color: #f2713c;
+    border-top-color: #f2713c;
+    border-left-color: #f2713c; } }
+
+@-webkit-keyframes bordercolours {
+  0% {
+    border-left-color: #f2713c; }
+
+  20% {
+    border-left-color: #f2713c; }
+
+  40% {
+    border-left-color: #cc0000; }
+
+  60% {
+    border-left-color: #6e1978; }
+
+  80% {
+    border-left-color: #376414; }
+
+  100% {
+    border-left-color: #f2713c; } }
+
+@-webkit-keyframes logo {
+  0% {
+    color: #f2713c; }
+
+  20% {
+    color: #f2713c; }
+
+  40% {
+    color: #cc0000; }
+
+  60% {
+    color: #6e1978; }
+
+  80% {
+    color: #376414; }
+
+  100% {
+    color: #f2713c; } }  
+  
+/* MOZILLA */
+@-moz-keyframes colours {
+  0% {
+    color: #f2713c;
+    border-top-color: #f2713c;
+    border-left-color: #f2713c; }
+
+  20% {
+    color: #f2713c;
+    border-top-color: #f2713c;
+    border-left-color: #f2713c; }
+
+  40% {
+    color: #cc0000;
+    border-top-color: #cc0000;
+    border-left-color: #cc0000; }
+
+  60% {
+    color: #6e1978;
+    border-top-color: #6e1978;
+    border-left-color: #6e1978; }
+
+  80% {
+    color: #376414;
+    border-top-color: #376414;
+    border-left-color: #376414; }
+
+  100% {
+    color: #f2713c;
+    border-top-color: #f2713c;
+    border-left-color: #f2713c; } }
+
+@-moz-keyframes bordercolours {
+  0% {
+    border-left-color: #f2713c; }
+
+  20% {
+    border-left-color: #f2713c; }
+
+  40% {
+    border-left-color: #cc0000; }
+
+  60% {
+    border-left-color: #6e1978; }
+
+  80% {
+    border-left-color: #376414; }
+
+  100% {
+    border-left-color: #f2713c; } }
+
+@-moz-keyframes logo {
+  0% {
+    color: #f2713c; }
+
+  20% {
+    color: #f2713c; }
+
+  40% {
+    color: #cc0000; }
+
+  60% {
+    color: #6e1978; }
+
+  80% {
+    color: #376414; }
+
+  100% {
+    color: #f2713c; } }
+    
+    
+
+
+header h1 {
+  -webkit-animation-direction: normal;
+  -webkit-animation-duration: 90s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: logo;
+  -webkit-animation-timing-function: ease; }
+
+article a, aside a, footer a, section#overview span, body, #article-content blockquote p.author {
+  -webkit-animation-direction: normal;
+  -webkit-animation-duration: 90s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: colours;
+  -webkit-animation-timing-function: ease; }
+
+#article-content blockquote {
+  -webkit-animation-direction: normal;
+  -webkit-animation-duration: 90s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: bordercolours;
+  -webkit-animation-timing-function: ease; }
+
+header h1 {
+  -moz-animation-direction: normal;
+  -moz-animation-duration: 90s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-name: logo;
+  -moz-animation-timing-function: ease; }
+
+article a, aside a, footer a, section#overview span, body, #article-content blockquote p.author {
+  -moz-animation-direction: normal;
+  -moz-animation-duration: 90s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-name: colours;
+  -moz-animation-timing-function: ease; }
+
+#article-content blockquote {
+  -moz-animation-direction: normal;
+  -moz-animation-duration: 90s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-name: bordercolours;
+  -moz-animation-timing-function: ease; }
