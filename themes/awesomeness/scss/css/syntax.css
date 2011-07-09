@@ -5,6 +5,7 @@ pre {
     font-size: 12px !important;
     max-height: 300px;
     overflow: auto;
+    box-shadow: 3px 3px 2px #888;
 }
 .highlight {
   background: none repeat scroll 0 0 #E8F4FF;
@@ -15,6 +16,7 @@ pre {
   margin-bottom: 15px;
   max-height: 300px;
   overflow: auto;
+  box-shadow: 3px 3px 2px #888;
 }
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */

@@ -141,7 +141,7 @@ section#recent-work {
       section#recent-work #slider-container #slider li {
         display: inline;
         float: left;
-        height: 210px;
+        height: 190px;
         margin: 0;
         padding: 0;
         position: relative;
@@ -156,20 +156,19 @@ section#recent-work {
           position: relative;
           top: 0;
           width: 240px; }
-        section#recent-work #slider-container #slider li p {
+        section#recent-work #slider-container #slider li p, #gallery-container li p {
           background: rgba(0, 0, 0, 0.5);
-          background: #cccccc;
+          /*background: #e4e4e4;*/
           padding: 0 5px;
-          /*color: black;*/
-          color: #888888;
+          color: #e4e4e4 !important;
           display: none;
           font-size: 1.2em;
           line-height: 2.4em;
           font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
           /*font-size-adjust: 0.53;*/
-          font-weight: normal;
+          font-weight: bold;
           font-style: normal;
-          bottom: 50px;
+          bottom: 37px;
           left: 30px;
           position: relative;
           z-index: 3;

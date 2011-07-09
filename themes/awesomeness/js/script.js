@@ -82,7 +82,7 @@ $(document).ready(function () {
     });
         
     
-    $('#slider li') 
+    $('#slider-container li') 
         .livequery(function(){ 
             $(this) 
                 .hover(function() { 

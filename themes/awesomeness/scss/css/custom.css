@@ -1,3 +1,11 @@
+#slider-container img, #gallery-container img {
+    box-shadow: 5px 5px 4px #888 !important;
+    border-radius: 5px !important;
+    border: 1px solid #ccc !important;
+    background-color: #e4e4e4 !important;
+    padding: 4px !important;
+}
+
 p {color: #888 !important}
 
 ::-webkit-scrollbar { width:9px; height:9px; } ::-webkit-scrollbar-button:start:decrement, ::-webkit-scrollbar-button:end:increment { display:block; height:0; background-color:transparent; } ::-webkit-scrollbar-track-piece { background-color:#FAFAFA; -webkit-border-radius:0; -webkit-border-bottom-right-radius:4px; -webkit-border-bottom-left-radius:4px; } ::-webkit-scrollbar-thumb:vertical { height:50px; background-color:#999; -webkit-border-radius:4px; } ::-webkit-scrollbar-thumb:horizontal { width:50px; background-color:#999; -webkit-border-radius:4px; }
@@ -30,10 +38,11 @@ transform: rotate(-9deg);
   overflow: auto;
   height: 380px;
   float: left;
+  box-shadow: 3px 3px 2px #888;
 }
 #gallery-lightbox li {
     float: left;
-    margin: 5px;
+    margin: 10px 10px 0;
     list-style: none;
 }
 #gallery-lightbox li img {
@@ -42,8 +51,8 @@ transform: rotate(-9deg);
     float: left;
     height: 160px;
     list-style: none outside none;
-    margin: 5px;
     width: 240px;
+    margin-bottom: 5px;
 }
 #disqus_thread {
   clear:both;
