@@ -95,26 +95,28 @@ $(document).ready(function () {
                 .unbind('mouseover') 
                 .unbind('mouseout'); 
     });
-	
+    
+    /* overlaps sidebar...
+    // extend code box on hover..
+    $('.highlight').hoverIntent(
+        function() {
+            $(this).animate({'width' : $('#wrapper').css('width') }, 800);
+        },
+        function() {
+            $(this).animate({'width' : '100%'}, 200);
+        }
+    );
+    */
+    
+    // smooth scrolling with named links
+    $('a[href*=#]').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+            var $target = $(this.hash);
+            $target = $target.length && $target || $('[name=' + this.hash.slice(1) +']');
+            if ($target.length) {
+                $target.ScrollTo(400);
+                return false;
+            }
+        };
+    });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

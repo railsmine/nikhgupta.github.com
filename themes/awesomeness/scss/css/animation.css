@@ -160,7 +160,7 @@ header h1 {
   -webkit-animation-name: logo;
   -webkit-animation-timing-function: ease; }
 
-article a, aside a, footer a, section#overview span, body, #article-content blockquote p.author {
+article a, aside a, footer a, section#overview span, body, #article-content blockquote p.author, .coloranimate, .post-title {
   -webkit-animation-direction: normal;
   -webkit-animation-duration: 90s;
   -webkit-animation-iteration-count: infinite;
@@ -181,7 +181,7 @@ header h1 {
   -moz-animation-name: logo;
   -moz-animation-timing-function: ease; }
 
-article a, aside a, footer a, section#overview span, body, #article-content blockquote p.author {
+article a, aside a, footer a, section#overview span, body, #article-content blockquote p.author, .coloranimate, .post-title {
   -moz-animation-direction: normal;
   -moz-animation-duration: 90s;
   -moz-animation-iteration-count: infinite;

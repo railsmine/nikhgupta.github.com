@@ -1,4 +1,21 @@
-.highlight { font-size: 12px; font-family:monospace; background: #ddeeff; margin-bottom: 15px; }
+pre {
+    white-space: pre;
+}
+.gist .gist-file .gist-data {
+    font-size: 12px !important;
+    max-height: 300px;
+    overflow: auto;
+}
+.highlight {
+  background: none repeat scroll 0 0 #E8F4FF;
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+  font-family: monospace;
+  font-size: 12px;
+  margin-bottom: 15px;
+  max-height: 300px;
+  overflow: auto;
+}
 .highlight .c { color: #999988; font-style: italic } /* Comment */
 .highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
 .highlight .k { font-weight: bold } /* Keyword */

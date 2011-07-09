@@ -39,16 +39,17 @@ section#overview {
   padding: 10px 0;
   width: 100%; }
   section#overview p {
-    color: black;
+    /*color: black;*/
+    color: #888888;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /* font-size-adjust: 0.53; */
     font-weight: 200;
     font-style: normal;
     font-size: 1.4em;
     line-height: 1.6667em; }
     section#overview p strong {
       font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-      font-size-adjust: 0.53;
+      /* font-size-adjust: 0.53;*/
       font-weight: normal;
       font-style: normal; }
     section#overview p span {
@@ -159,12 +160,13 @@ section#recent-work {
           background: rgba(0, 0, 0, 0.5);
           background: #cccccc;
           padding: 0 5px;
-          color: black;
+          /*color: black;*/
+          color: #888888;
           display: none;
           font-size: 1.2em;
           line-height: 2.4em;
           font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-          font-size-adjust: 0.53;
+          /*font-size-adjust: 0.53;*/
           font-weight: normal;
           font-style: normal;
           bottom: 50px;
@@ -187,7 +189,7 @@ header {
     display: inline;
     float: left;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: bold;
     font-style: normal;
     font-size: 3.6em;
@@ -201,7 +203,7 @@ header {
     color: black;
     display: none;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: normal;
     font-style: normal;
     font-size: 1.6em;
@@ -235,7 +237,7 @@ nav {
     display: inline;
     float: left;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: normal;
     font-style: normal;
     list-style: none;
@@ -277,10 +279,11 @@ article {
     padding: 10px 0 0 0;
     width: 60%; }
     article #article-content p:first-child {
-      color: black;
+      /*color: black;*/
+      color: #888888;
       font-size: 1.6em;
       font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-      font-size-adjust: 0.53;
+      /*font-size-adjust: 0.53;*/
       font-weight: normal;
       font-style: normal; }
     article #article-content blockquote {
@@ -292,10 +295,11 @@ article {
       width: 97%; }
       article #article-content blockquote p, article #article-content blockquote p:first-child {
         font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-        font-size-adjust: 0.53;
+        /*font-size-adjust: 0.53;*/
         font-weight: 200;
         font-style: normal;
-        color: black;
+        /*color: black;*/
+        color: #888888;
         font-size: 1.4em;
         margin-bottom: 5px;
         text-align: justify; }
@@ -316,7 +320,7 @@ article {
       display: inline;
       float: left;
       font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-      font-size-adjust: 0.53;
+      /*font-size-adjust: 0.53;*/
       font-weight: normal;
       font-style: normal;
       font-size: 3.6em;
@@ -335,7 +339,7 @@ article {
     display: inline;
     float: left;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: normal;
     font-style: normal;
     font-size: 3.0em;
@@ -345,9 +349,10 @@ article {
     text-align: left;
     width: 100%; }
   article p, article ul, article ol {
-    color: black;
+    /*color: black;*/
+    color: #888888;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: 200;
     font-style: normal;
     font-size: 1.3em;
@@ -356,9 +361,10 @@ article {
     text-align: justify; }
   article p strong,
   article ul strong {
-    color: black;
+    /*color: black;*/
+    color: #888888;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: bold;
     font-style: normal; }
   article h2, article h3, article h4 {
@@ -368,7 +374,7 @@ article {
     color: black;
     text-align: justify;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: normal;
     font-style: normal;
     font-size: 1.8em;
@@ -386,12 +392,12 @@ article {
         padding-left: 0; }
     article h2 strong, article h3 strong, article h4 strong {
       font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-      font-size-adjust: 0.53;
+      /*font-size-adjust: 0.53;*/
       font-weight: normal;
       font-style: normal; }
   article h2 {
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: normal;
     font-style: normal; }
   article h3 {
@@ -407,7 +413,7 @@ article {
     width: 97%; }
     article blockquote p, article blockquote p:first-child {
       font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-      font-size-adjust: 0.53;
+      /*font-size-adjust: 0.53;*/
       font-weight: 200;
       font-style: normal;
       font-size: 1.4em;
@@ -465,7 +471,7 @@ aside {
     aside dl dt {
       color: black;
       font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-      font-size-adjust: 0.53;
+      /*font-size-adjust: 0.53;*/
       font-weight: normal;
       font-style: normal;
       font-size: 1.6em;
@@ -478,11 +484,12 @@ aside {
       aside dl dd ul, aside dl dd p {
         border-bottom: 1px solid white;
         border-top: 1px solid #e4e4e4;
-        color: black;
+        /*color: black;*/
+        color: #888888;
         display: inline;
         float: left;
         font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-        font-size-adjust: 0.53;
+        /*font-size-adjust: 0.53;*/
         font-weight: 200;
         font-style: normal;
         list-style: none;
@@ -503,7 +510,7 @@ aside {
             text-decoration: none; }
             aside dl dd ul li a strong, aside dl dd p li a strong {
               font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-              font-size-adjust: 0.53;
+              /*font-size-adjust: 0.53;*/
               font-weight: bold;
               font-style: normal; }
           aside dl dd ul li a:hover, aside dl dd p li a:hover {
@@ -520,14 +527,15 @@ footer {
     display: inline;
     float: left;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: 200;
     font-style: normal;
     list-style: none;
     margin: 0;
     width: 100%; }
     footer ul li {
-      color: black;
+      /*color: black;*/
+      color: #888888;
       display: inline;
       float: left;
       font-size: 1.2em;
@@ -536,14 +544,15 @@ footer {
       padding: 0;
       text-align: left; }
       footer ul li a:link, footer ul li a:active, footer ul li a:visited {
-        color: black;
+        /*color: black;*/
+        color: #888888;
         padding: 0; }
       footer ul li a:hover {
         color: #f2713c; }
       footer ul li span {
         color: #f2713c;
         font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-        font-size-adjust: 0.53;
+        /*font-size-adjust: 0.53;*/
         font-weight: 200;
         font-style: normal; }
     footer ul li:last-child {
@@ -561,7 +570,7 @@ footer#meta {
     display: inline;
     float: left;
     font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-    font-size-adjust: 0.53;
+    /*font-size-adjust: 0.53;*/
     font-weight: 200;
     font-style: normal;
     list-style: none;
@@ -569,7 +578,8 @@ footer#meta {
     width: 100%; }
     footer#meta ul li {
       clear: left;
-      color: black;
+      /*color: black;*/
+      color: #888888;
       display: inline;
       float: left;
       font-size: 1.4em;
@@ -579,14 +589,15 @@ footer#meta {
       text-align: center;
       width: 100%; }
       footer#meta ul li a:link, footer#meta ul li a:active, footer#meta ul li a:visited {
-        color: black;
+        /*color: black;*/
+        color: #888888;
         padding: 0 5px; }
       footer#meta ul li a:hover {
         color: #f2713c; }
       footer#meta ul li span {
         color: #f2713c;
         font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-        font-size-adjust: 0.53;
+        /*font-size-adjust: 0.53;*/
         font-weight: 200;
         font-style: normal; }
 
@@ -627,7 +638,7 @@ footer#meta {
     nav ul {
       float: none;
       font-family: "PT Sans", Helvetica, Arial, Verdana , sans-serif;
-      font-size-adjust: 0.53;
+      /*font-size-adjust: 0.53;*/
       font-weight: normal;
       font-style: normal;
       list-style: none;
