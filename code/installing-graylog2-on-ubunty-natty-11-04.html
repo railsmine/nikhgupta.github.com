@@ -1,0 +1,450 @@
+<!DOCTYPE html> 
+ 
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6 oldie"> <![endif]--> 
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7 oldie"> <![endif]--> 
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8 oldie"> <![endif]--> 
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]--> 
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]--> 
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <title>Nikhil Gupta :: Installing Graylog2 on Ubunty Natty 11.04</title>
+  
+  <meta name="description" content="Graylog2 is an open source syslog implementation that stores your logs in MongoDB. It consists of a server written in Java that accepts your syslog messages via TCP or UDP and stores it in the database. The second part is a Ruby on Rails web interface that allows you to view the log messages.">
+  <meta name="author" content="Nikhil Gupta">
+  
+  <!-- Support Facebook for the love of it -->
+  <meta property="og:title" content="Installing Graylog2 on Ubunty Natty 11.04" />
+  <meta property="og:type" content="blog" />
+  <meta property="og:url" content="http://nikhgupta.com/code/installing-graylog2-on-ubunty-natty-11-04.html" />
+  <meta property="og:image" content="http://nikhgupta.com/themes/awesomeness/images/me.jpg" />
+  <meta property="og:site_name" content="Nikhil Gupta" />
+  <meta property="og:author" content="Nikhil Gupta">
+  <meta property="og:description" content="Graylog2 is an open source syslog implementation that stores your logs in MongoDB. It consists of a server written in Java that accepts your syslog messages via TCP or UDP and stores it in the database. The second part is a Ruby on Rails web interface that allows you to view the log messages."/>
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory: mathiasbynens.be/notes/touch-icons -->
+
+  <!-- CSS: implied media="all" --> 
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/face_pt_sans.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/animation.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/screen_pt_sans.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/custom.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/colorbox.css" />
+  <link rel="stylesheet" type="text/css" href="/themes/awesomeness/scss/css/syntax.css" />
+  
+  <script src="/themes/awesomeness/js/libs/modernizr-2.0.min.js"></script>
+  <script src="/themes/awesomeness/js/libs/respond.min.js"></script>
+  
+</head> 
+
+<body id="top"> 
+    <div id="container">
+        <div id="wrapper"> 
+
+<header>
+    <h1 class="png_bg">Nikhil<span>Gupta</span></h1> 
+    <nav> 
+    <ul> 
+        <li><a href="/">Home</a></li>
+        <!--
+        <li><a href="/about/">About</a></li> 
+        -->
+        <li><a href="/categories/code/">Code</a></li> 
+        <li><a href="/categories/photography/">Photography</a></li> 
+        <li><a href="/blog/">Blog</a></li> 
+        <li><a href="/contact/">Contact</a></li> 
+    </ul> 
+</nav> 
+
+</header>
+<section id="overview">
+  <p><span>&#9733;</span> 
+    
+      Graylog2 is an open source syslog implementation that stores your logs in MongoDB. It consists of a server written in Java that accepts your syslog messages via TCP or UDP and stores it in the database. The second part is a Ruby on Rails web interface that allows you to view the log messages.
+    
+  </p> 
+</section> 
+
+
+<article> 
+    <div id="post-header" style="width: auto; float:none; "> 
+        <h1 class="post-title">Installing Graylog2 on Ubunty Natty 11.04<span>09 July 2011</span></h1>
+        
+    </div> 
+    
+    <div id="article-content" style="width: auto; float:none">
+        
+
+        
+  
+<div id="gallery-container"> 
+  <ul id="gallery-lightbox">
+    
+      
+                    
+          
+            
+          
+          <li class="searches">
+              <a href="http://farm7.static.flickr.com/6137/5918308998_0d054a7bd8.jpg" title="Graylog2 GELF Complete<br/>This photo was taken  " rel="search-graylog2" class="colorbox">
+                <img src="http://farm7.static.flickr.com/6137/5918308998_0d054a7bd8_m.jpg" alt="Graylog2 GELF Complete" class="thumbnail"/>
+              </a>
+              <p>Graylog2 GELF Complete</p>
+          </li>
+                    
+          
+            
+          
+          <li class="searches">
+              <a href="http://farm7.static.flickr.com/6125/5917750109_01626f6a0a.jpg" title="Graylog2 Build Dashboard<br/>This photo was taken  " rel="search-graylog2" class="colorbox">
+                <img src="http://farm7.static.flickr.com/6125/5917750109_01626f6a0a_m.jpg" alt="Graylog2 Build Dashboard" class="thumbnail"/>
+              </a>
+              <p>Graylog2 Build Dashboard</p>
+          </li>
+                    
+          
+            
+          
+          <li class="searches">
+              <a href="http://farm7.static.flickr.com/6145/5918308556_f2a7761fb0_b.jpg" title="Graylog2 Server Health<br/>This photo was taken  " rel="search-graylog2" class="colorbox">
+                <img src="http://farm7.static.flickr.com/6145/5918308556_f2a7761fb0_m.jpg" alt="Graylog2 Server Health" class="thumbnail"/>
+              </a>
+              <p>Graylog2 Server Health</p>
+          </li>
+                    
+          
+            
+          
+          <li class="searches">
+              <a href="http://farm7.static.flickr.com/6131/5917749759_cb2dd6b64b_b.jpg" title="Graylog2 Dashboard II<br/>This photo was taken  " rel="search-graylog2" class="colorbox">
+                <img src="http://farm7.static.flickr.com/6131/5917749759_cb2dd6b64b_m.jpg" alt="Graylog2 Dashboard II" class="thumbnail"/>
+              </a>
+              <p>Graylog2 Dashboard II</p>
+          </li>
+                    
+          
+            
+          
+          <li class="searches">
+              <a href="http://farm7.static.flickr.com/6130/5917749497_7c03af47ff_z.jpg" title="Graylog2 GELF Message<br/>This photo was taken  " rel="search-graylog2" class="colorbox">
+                <img src="http://farm7.static.flickr.com/6130/5917749497_7c03af47ff_m.jpg" alt="Graylog2 GELF Message" class="thumbnail"/>
+              </a>
+              <p>Graylog2 GELF Message</p>
+          </li>
+                    
+          
+            
+          
+          <li class="searches">
+              <a href="http://farm7.static.flickr.com/6142/5918307994_5386f01dd9.jpg" title="Graylog2 Analytics Snapshot<br/>This photo was taken  " rel="search-graylog2" class="colorbox">
+                <img src="http://farm7.static.flickr.com/6142/5918307994_5386f01dd9_m.jpg" alt="Graylog2 Analytics Snapshot" class="thumbnail"/>
+              </a>
+              <p>Graylog2 Analytics Snapshot</p>
+          </li>
+                    
+          
+            
+          
+          <li class="searches">
+              <a href="http://farm7.static.flickr.com/6123/5917749029_687f4d01c8_b.jpg" title="Graylog2 Dashboard<br/>This photo was taken  " rel="search-graylog2" class="colorbox">
+                <img src="http://farm7.static.flickr.com/6123/5917749029_687f4d01c8_m.jpg" alt="Graylog2 Dashboard" class="thumbnail"/>
+              </a>
+              <p>Graylog2 Dashboard</p>
+          </li>
+        
+      
+    
+  </ul>
+</div>
+
+  <p>Alright, so I wanted to install a <a href='http://graylog2.org'>Graylog2</a> server on my Ubuntu Natty for managing various system logs, custom tasks output, and specially capturing <a href='http://rubyonrails.org/'>Rails</a> exceptions.<br />Configuring a Graylog2 instance to run on Ubuntu was bit of a daunting task, but I, finally, have it - installed, running and logging :)<br />And, I must say, this is a beauty - the dashboard, the filters, analytics and what not - in a very clean, elegant Rails UI - heavily pink in color ;)</p>
+
+<p>We need Java since Graylog2 server utilizes the awesome performce of it. We need MongoDB for thats the database our logs would be saved into. And, o&#8217;course we need Ruby to run our web interface.</p>
+
+<h2 id='installing_java__mongodb'>Installing Java &amp; MongoDB</h2>
+
+<p>Java and MongoDB are both available via APT/Synaptic.</p>
+<div class='highlight'><pre><code class='bash'>sudo apt-get update
+sudo apt-get install openjdk-6-jre mongodb
+</code></pre>
+</div>
+<h2 id='installing_graylog2_server'>Installing Graylog2 Server</h2>
+
+<p>The commands below will download the graylog2 server, unzip it and copy the configuration file, as needed. Finally, it will run MongoDB shell.</p>
+<div class='highlight'><pre><code class='bash'><span class='nb'>cd</span> <span class='nv'>$HOME</span>
+mkdir -p <span class='nv'>$HOME</span>/.graylog2
+<span class='nb'>cd</span> <span class='nv'>$HOME</span>/.graylog2
+wget https://github.com/downloads/Graylog2/graylog2-server/graylog2-server-0.9.5p1.tar.gz
+tar xzf graylog2-server-0.9.5p1.tar.gz
+sudo cp <span class='nv'>$HOME</span>/.graylog2/graylog2-server/graylog2.conf.example /etc/graylog2.conf
+mongo
+</code></pre>
+</div>
+<p>Once we have the shell, type the following commands to configure a database to be used by Graylog2 Server.</p>
+<div class='highlight'><pre><code class='bash'>use graylog2
+db.addUser<span class='o'>(</span><span class='s2'>&quot;graylog2&quot;</span>, <span class='s2'>&quot;password&quot;</span><span class='o'>)</span>
+<span class='nb'>exit</span>
+</code></pre>
+</div>
+<p>Now, open your favorite editor and edit the <code>/etc/graylog2.conf</code> file with root access.<br />Change the configuration in there to match the MongoDB, you just created. Typically, it would be:</p>
+<div class='highlight'><pre><code class='cfg'><span class='na'>mongodb_useauth</span> <span class='o'>=</span> <span class='s'>true</span>
+<span class='na'>mongodb_user</span> <span class='o'>=</span> <span class='s'>graylog2 </span>
+<span class='na'>mongodb_password</span> <span class='o'>=</span> <span class='s'>password</span>
+<span class='na'>mongodb_host</span> <span class='o'>=</span> <span class='s'>127.0.0.1 </span>
+<span class='c'>#mongodb_replica_set = localhost:27017,localhost:27018,localhost:27019</span>
+<span class='na'>mongodb_database</span> <span class='o'>=</span> <span class='s'>graylog2</span>
+<span class='na'>mongodb_port</span> <span class='o'>=</span> <span class='s'>27017</span>
+</code></pre>
+</div>
+<p>Once, everything above is configured, we can start our graylog2 server, using:</p>
+<div class='highlight'><pre><code class='bash'>sudo java -jar /home/&lt;username&gt;/.graylog2/graylog2-server/graylog2-server.jar
+</code></pre>
+</div>
+<p>Hopefully, if you received no error, we can proceed with installing Graylog2 Web Interface.</p>
+
+<h2 id='installing_ruby'>Installing Ruby</h2>
+
+<p>Ruby can be installed in many ways. However, I prefer installing Ruby via RVM and utilizing 1.8.7-p334 branch with Graylog2.<br />I leave the task of installing Ruby to the reader.</p>
+
+<h2 id='installing_graylog2_web_interface'>Installing Graylog2 Web Interface</h2>
+
+<p>Lets, download the Graylog2 web interface, and run <code>bundle install</code> so as to install all the gems needed.</p>
+<div class='highlight'><pre><code class='bash'><span class='nb'>cd</span> <span class='nv'>$HOME</span>/.graylog2
+wget https://github.com/downloads/Graylog2/graylog2-web-interface/graylog2-web-interface-0.9.5p2.tar.gz
+tar xzf graylog2-web-interface-0.9.5p2.tar.gz
+<span class='nb'>cd </span>graylog2-web-interface-0.9.5p2
+<span class='o'>(</span>rvm use 1.8.7@graylog2<span class='o'>)</span>
+<span class='o'>(</span>rvmsudo<span class='o'>)</span> gem install bundler
+<span class='o'>(</span>rvmsudo<span class='o'>)</span> bundle install
+</code></pre>
+</div>
+<p>Finally, add the MongoDB configuration to the Web interface (edit <code>config/mongoid.yml</code>)</p>
+<div class='highlight'><pre><code class='yaml'><span class='l-Scalar-Plain'>production</span><span class='p-Indicator'>:</span>
+<span class='l-Scalar-Plain'>host</span><span class='p-Indicator'>:</span> <span class='l-Scalar-Plain'>localhost</span>
+<span class='l-Scalar-Plain'>port</span><span class='p-Indicator'>:</span> <span class='l-Scalar-Plain'>27017</span>
+<span class='l-Scalar-Plain'>Username</span><span class='p-Indicator'>:</span> <span class='l-Scalar-Plain'>graylog2</span>
+<span class='l-Scalar-Plain'>Password</span><span class='p-Indicator'>:</span> <span class='l-Scalar-Plain'>password</span>
+<span class='l-Scalar-Plain'>database</span><span class='p-Indicator'>:</span> <span class='l-Scalar-Plain'>graylog2</span>
+</code></pre>
+</div>
+<p>Now, you can run the web interface with Rails command:</p>
+<div class='highlight'><pre><code class='bash'>rails server -e production
+</code></pre>
+</div>
+<p>You should now be able to run: <code>http://localhost:3000</code> and see your Graylog2 Web Interface.</p>
+
+<h2 id='automating_alwaysrunning_graylog2_instance'>Automating (always-running) Graylog2 instance</h2>
+
+<p>You may, optionally, want to keep the Graylog2 interface always running, while the above commands will need you to run an instance of graylog2 server and web interface everytime. Therefore, you can follow the steps below to configure the Graylog2 instance as always-on.</p>
+
+<h3 id='use_passenger'>Use <a href='http://www.modrails.com/'>Passenger</a></h3>
+
+<p>To avoid starting the web interface everytime, you can use Passenger gem by ModRails. Configuring the passenger server is covered in a lot more details in the documentations and hence, I am not covering that specific part.</p>
+
+<h3 id='use_startup_scripts'>Use StartUp scripts</h3>
+
+<p>With Ubuntu, you can use startup scripts to run some particular scripts when the system is started, saving you from running those <code>sudo service .. start</code> commands after logging in, etc.</p>
+
+<h4 id='graylog2_startup_script'>Graylog2 StartUp Script</h4>
+
+<p>Create a file: <code>/etc/init.d/graylog2-server</code> and copy the contents below, in it.</p>
+<div class='highlight'><pre><code class='bash'><span class='c'>#!/bin/sh</span>
+<span class='c'>#</span>
+<span class='c'># graylog2-server:   graylog2 message collector</span>
+<span class='c'>#</span>
+<span class='c'># chkconfig: - 98 02</span>
+<span class='c'># description:  This daemon listens for syslog and GELF messages and stores them in mongodb</span>
+<span class='c'>#</span>
+ 
+<span class='nv'>CMD</span><span class='o'>=</span><span class='nv'>$1</span>
+<span class='nv'>NOHUP</span><span class='o'>=</span><span class='sb'>`</span>which nohup<span class='sb'>`</span>
+<span class='nv'>JAVA_HOME</span><span class='o'>=</span>/usr/java/latest
+<span class='nv'>JAVA_CMD</span><span class='o'>=</span><span class='nv'>$JAVA_HOME</span>/bin/java
+ 
+<span class='nv'>GRAYLOG2_SERVER_HOME</span><span class='o'>=</span>/opt/graylog2-server
+ 
+start<span class='o'>()</span> <span class='o'>{</span>
+    <span class='nb'>echo</span> <span class='s2'>&quot;Starting graylog2-server ...&quot;</span>
+    <span class='nv'>$NOHUP</span> <span class='nv'>$JAVA_CMD</span> -jar <span class='nv'>$GRAYLOG2_SERVER_HOME</span>/graylog2-server.jar &amp;gt; /var/log/graylog2.log 2&amp;gt;&amp;amp;1 &amp;amp;
+<span class='o'>}</span>
+ 
+stop<span class='o'>()</span> <span class='o'>{</span>
+        <span class='nv'>PID</span><span class='o'>=</span><span class='sb'>`</span>cat /tmp/graylog2.pid<span class='sb'>`</span>
+    <span class='nb'>echo</span> <span class='s2'>&quot;Stopping graylog2-server ($PID) ...&quot;</span>
+        <span class='nb'>kill</span> <span class='nv'>$PID</span>
+<span class='o'>}</span>
+ 
+restart<span class='o'>()</span> <span class='o'>{</span>
+    <span class='nb'>echo</span> <span class='s2'>&quot;Restarting graylog2-server ...&quot;</span>
+        stop
+        start
+<span class='o'>}</span>
+ 
+<span class='k'>case</span> <span class='s2'>&quot;$CMD&quot;</span> in
+    start<span class='o'>)</span>
+        start
+        ;;
+    stop<span class='o'>)</span>
+        stop
+        ;;
+    restart<span class='o'>)</span>
+        restart
+        ;;
+    *<span class='o'>)</span>
+        <span class='nb'>echo</span> <span class='s2'>&quot;Usage $0 {start|stop|restart}&quot;</span>
+        <span class='nv'>RETVAL</span><span class='o'>=</span>1
+<span class='k'>esac</span>
+</code></pre>
+</div>
+<p>Now, register the Graylog2-server Init script with startup, and run an instance:</p>
+<div class='highlight'><pre><code class='bash'>sudo update-rc.d graylog2-server defaults
+sudo service graylog2-server start
+</code></pre>
+</div>
+<p><strong>This should get you up and running with a Graylog2 instance. Happy, loggin&#8217;!</strong></p>
+
+
+        <div id="comments">
+  <h2 style="font-size: 36px">Say Somethin'... :)</h2>
+  <div id="disqus_thread" name="#comments"></div>
+  <script type="text/javascript">
+      /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+      var disqus_shortname = 'nikhgupta'; // required: replace example with your forum shortname
+
+      // The following are highly recommended additional parameters. Remove the slashes in front to use.
+       var disqus_url = 'http://nikhgupta.com/code/installing-graylog2-on-ubunty-natty-11-04.html';
+
+      /* * * DON'T EDIT BELOW THIS LINE * * */
+      (function() {
+          var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+    </div>
+</article>
+
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <aside>
+    
+    <dl> 
+        <dt>Recently Published</dt> 
+        <dd> 
+            <ul> 
+                
+                    
+                        
+                     
+                
+                    
+                        
+                     
+                
+                    
+                        
+                     
+                
+                    
+                        
+                     
+                
+                    
+                        
+                            <li><a href="/generic/the-colophon-for-the-starters.html">The Colophon for the Starters</a></li>
+                        
+                     
+                        
+                <li><a href="/blog/"><strong>Older articles &rarr;</strong></a></li> 
+            </ul> 
+        </dd> 
+    </dl> 
+
+    <dl> 
+        <dt>Recently Coded</dt> 
+        <dd> 
+            <ul> 
+                
+                <li><a href="/code/installing-graylog2-on-ubunty-natty-11-04.html">Installing Graylog2 on Ubunty Natty 11.04</a></li>
+                
+                <li><a href="/code/cpanel-backup-script.html">cPanel Backup Script</a></li>
+                
+                <li><a href="/code/visualizing-ruby-variable-as-yaml-data.html">Visualizing Ruby variable as YAML data</a></li>
+                
+                <li><a href="/code/"><strong>Previously Coded &rarr;</strong></a></li>
+            </ul> 
+        </dd>
+    </dl>
+
+    <dl> 
+        <dt>Recently Captured</dt> 
+        <dd> 
+            <ul> 
+                
+                <li><a href="/photography/total-lunar-eclipse-june-15-2011.html">Total Lunar Eclipse @June 15, 2011</a></li>
+                
+                <li><a href="/photography/"><strong>Previously Captured &rarr;</strong></a></li>
+            </ul> 
+        </dd>
+    </dl>
+</aside>
+
+</div>
+
+
+
+<footer>
+    <ul> 
+        <li>&copy; Nikhil Gupta, 2009-2011. All rights reserved.</li> 
+        <li>Powered by <a href="https://github.com/mojombo/jekyll" rel="external">Jekyll</a></li> 
+        <li>Elsewhere: <a href="http://twitter.com/nikhgupta" rel="external">Twitter</a> | <a href="http://facebook.com/nikhgupta" rel="external">Facebook</a> | <a href="http://github.com/nikhgupta" rel="external">Github</a></li> 
+    </ul> 
+</footer>
+</div> <!--! end of #container -->
+</div>
+<!-- JavaScript at the bottom for fast page loading -->
+
+<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if offline -->
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/libs/jquery-1.6.1.min.js"><\/script>')</script>
+-->
+ 
+<script src="/themes/awesomeness/js/libs/jquery-1.6.1.min.js"></script> 
+<script src="/themes/awesomeness/js/mylibs/jquery.easing.1.3.js"></script> 
+<script src="/themes/awesomeness/js/mylibs/jquery.bxSlider-3.0.min.js"></script> 
+<script src="/themes/awesomeness/js/mylibs/jquery.livequery-1.0.3.js"></script> 
+<script src="/themes/awesomeness/js/mylibs/jquery.colorbox-1.3.17.min.js"></script>
+<script src="/themes/awesomeness/js/libs/jquery.retina-1.2.js"></script>
+<script src="/themes/awesomeness/js/plugins.js"></script> 
+<script src="/themes/awesomeness/js/script.js"></script> 
+
+<!-- GOOGLE ANALYTICS CODE -->
+<script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', "UA-21306915-1"]);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+</script>
+
+ 
+<!--[if lt IE 7 ]>
+<script src="/themes/awesomeness/js/libs/dd_belatedpng.js"></script>
+<script> DD_belatedPNG.fix('img, .png_bg');</script>
+<![endif]--> 
+
+</body> 
+</html>
+
